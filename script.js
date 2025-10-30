@@ -52,11 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-<<<<<<< HEAD
     // Handle language selection - Updated to work with translator
-=======
-    // Handle language selection
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
     languageOptions.forEach(option => {
         option.addEventListener('click', function() {
             const langCode = this.getAttribute('data-lang');
@@ -74,16 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
             languageDropdown.classList.remove('show');
             dropdownIcon.style.transform = 'rotate(0deg)';
             
-<<<<<<< HEAD
             // Trigger language change - this will be handled by the translator
-=======
-            // Example: you could trigger a language change event here
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
             changeLanguage(langCode, langName);
         });
     });
     
-<<<<<<< HEAD
     // Function to handle language change - Updated to work with translator
     function changeLanguage(langCode, langName) {
         console.log(`Language changed to: ${langName} (${langCode})`);
@@ -97,18 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Dispatch custom event for other parts of your application
-=======
-    // Function to handle language change
-    function changeLanguage(langCode, langName) {
-        console.log(`Language changed to: ${langName} (${langCode})`);
-        // Here you would implement the actual language change logic
-        // For example, updating content, storing preference in localStorage, etc.
-        
-        // Example: store language preference
-        localStorage.setItem('preferredLanguage', langCode);
-        
-        // You could also dispatch a custom event for other parts of your application
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
         const event = new CustomEvent('languageChanged', { 
             detail: { language: langCode, name: langName } 
         });
@@ -152,22 +131,14 @@ document.addEventListener('DOMContentLoaded', function() {
         loadFormulas(classNumber);
     }
     
-<<<<<<< HEAD
     // Math Formulas Data by Class - Enhanced with translation keys
-=======
-    // Math Formulas Data by Class
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
     const mathFormulasData = {
         '7': [
             {
                 title: 'Area of Rectangle',
-<<<<<<< HEAD
                 titleKey: 'formula.rectangle.area.title',
                 explanation: 'The area of a rectangle is calculated by multiplying its length by its width.',
                 explanationKey: 'formula.rectangle.area.explanation',
-=======
-                explanation: 'The area of a rectangle is calculated by multiplying its length by its width.',
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
                 correctFormula: 'A = l × w',
                 variables: {
                     'A': 'area',
@@ -177,13 +148,9 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 title: 'Area of Triangle',
-<<<<<<< HEAD
                 titleKey: 'formula.triangle.area.title',
                 explanation: 'The area of a triangle is calculated by multiplying half of the base length by the height.',
                 explanationKey: 'formula.triangle.area.explanation',
-=======
-                explanation: 'The area of a triangle is calculated by multiplying half of the base length by the height.',
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
                 correctFormula: 'A = (1/2) × b × h',
                 variables: {
                     'A': 'area',
@@ -193,13 +160,9 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 title: 'Circumference of Circle',
-<<<<<<< HEAD
                 titleKey: 'formula.circle.circumference.title',
                 explanation: 'The circumference of a circle is calculated by multiplying pi (π) by the diameter, or 2 times pi (π) times the radius.',
                 explanationKey: 'formula.circle.circumference.explanation',
-=======
-                explanation: 'The circumference of a circle is calculated by multiplying pi (π) by the diameter, or 2 times pi (π) times the radius.',
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
                 correctFormula: 'C = 2πr',
                 variables: {
                     'C': 'circumference',
@@ -211,13 +174,9 @@ document.addEventListener('DOMContentLoaded', function() {
         '8': [
             {
                 title: 'Pythagorean Theorem',
-<<<<<<< HEAD
                 titleKey: 'formula.pythagorean.title',
                 explanation: 'In a right-angled triangle, the square of the length of the hypotenuse equals the sum of the squares of the lengths of the other two sides.',
                 explanationKey: 'formula.pythagorean.explanation',
-=======
-                explanation: 'In a right-angled triangle, the square of the length of the hypotenuse equals the sum of the squares of the lengths of the other two sides.',
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
                 correctFormula: 'a² + b² = c²',
                 variables: {
                     'a': 'first leg length',
@@ -227,13 +186,9 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 title: 'Simple Interest',
-<<<<<<< HEAD
                 titleKey: 'formula.interest.simple.title',
                 explanation: 'Simple interest is calculated by multiplying the principal amount by the rate of interest and the time period.',
                 explanationKey: 'formula.interest.simple.explanation',
-=======
-                explanation: 'Simple interest is calculated by multiplying the principal amount by the rate of interest and the time period.',
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
                 correctFormula: 'I = P × r × t',
                 variables: {
                     'I': 'interest',
@@ -244,13 +199,9 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 title: 'Volume of Cube',
-<<<<<<< HEAD
                 titleKey: 'formula.cube.volume.title',
                 explanation: 'The volume of a cube is calculated by cubing the length of one side.',
                 explanationKey: 'formula.cube.volume.explanation',
-=======
-                explanation: 'The volume of a cube is calculated by cubing the length of one side.',
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
                 correctFormula: 'V = s³',
                 variables: {
                     'V': 'volume',
@@ -261,13 +212,9 @@ document.addEventListener('DOMContentLoaded', function() {
         '9': [
             {
                 title: 'Quadratic Formula',
-<<<<<<< HEAD
                 titleKey: 'formula.quadratic.title',
                 explanation: 'The quadratic formula is used to solve a quadratic equation in the form ax² + bx + c = 0.',
                 explanationKey: 'formula.quadratic.explanation',
-=======
-                explanation: 'The quadratic formula is used to solve a quadratic equation in the form ax² + bx + c = 0.',
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
                 correctFormula: 'x = (-b ± √(b² - 4ac)) / (2a)',
                 variables: {
                     'x': 'variable to solve for',
@@ -278,13 +225,9 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 title: 'Slope of a Line',
-<<<<<<< HEAD
                 titleKey: 'formula.slope.title',
                 explanation: 'The slope of a line measures its steepness and is calculated using the coordinates of any two points on the line.',
                 explanationKey: 'formula.slope.explanation',
-=======
-                explanation: 'The slope of a line measures its steepness and is calculated using the coordinates of any two points on the line.',
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
                 correctFormula: 'm = (y₂ - y₁) / (x₂ - x₁)',
                 variables: {
                     'm': 'slope',
@@ -294,13 +237,9 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 title: 'Area of a Trapezoid',
-<<<<<<< HEAD
                 titleKey: 'formula.trapezoid.area.title',
                 explanation: 'The area of a trapezoid is calculated by multiplying the average of the parallel sides by the height.',
                 explanationKey: 'formula.trapezoid.area.explanation',
-=======
-                explanation: 'The area of a trapezoid is calculated by multiplying the average of the parallel sides by the height.',
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
                 correctFormula: 'A = ((a + b) / 2) × h',
                 variables: {
                     'A': 'area',
@@ -312,13 +251,9 @@ document.addEventListener('DOMContentLoaded', function() {
         '10': [
             {
                 title: 'Distance Formula',
-<<<<<<< HEAD
                 titleKey: 'formula.distance.title',
                 explanation: 'The distance formula calculates the distance between two points in a coordinate plane.',
                 explanationKey: 'formula.distance.explanation',
-=======
-                explanation: 'The distance formula calculates the distance between two points in a coordinate plane.',
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
                 correctFormula: 'd = √((x₂ - x₁)² + (y₂ - y₁)²)',
                 variables: {
                     'd': 'distance',
@@ -328,13 +263,9 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 title: 'Compound Interest',
-<<<<<<< HEAD
                 titleKey: 'formula.interest.compound.title',
                 explanation: 'Compound interest is calculated when interest is added to the principal, so that from that moment on, the interest that has been added also earns interest.',
                 explanationKey: 'formula.interest.compound.explanation',
-=======
-                explanation: 'Compound interest is calculated when interest is added to the principal, so that from that moment on, the interest that has been added also earns interest.',
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
                 correctFormula: 'A = P(1 + r/n)^(nt)',
                 variables: {
                     'A': 'final amount',
@@ -346,13 +277,9 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 title: 'Volume of a Sphere',
-<<<<<<< HEAD
                 titleKey: 'formula.sphere.volume.title',
                 explanation: 'The volume of a sphere is calculated using its radius.',
                 explanationKey: 'formula.sphere.volume.explanation',
-=======
-                explanation: 'The volume of a sphere is calculated using its radius.',
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
                 correctFormula: 'V = (4/3)πr³',
                 variables: {
                     'V': 'volume',
@@ -363,11 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ]
     };
     
-<<<<<<< HEAD
     // Function to load formulas based on class selection - Updated to work with translations
-=======
-    // Function to load formulas based on class selection
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
     function loadFormulas(classNumber) {
         const formulaContainer = document.getElementById('formula-container');
         const formulaTemplate = document.getElementById('formula-template');
@@ -376,17 +299,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Clear current formulas
         formulaContainer.innerHTML = '';
         
-<<<<<<< HEAD
         // Update intro text with translation support
         const introText = `Math formulas for Class ${classNumber}:`;
         formulaIntro.textContent = introText;
         
         // Add translation attribute for dynamic content
         formulaIntro.setAttribute('data-translate', `page.formulas.intro.class.${classNumber}`);
-=======
-        // Update intro text
-        formulaIntro.textContent = `Math formulas for Class ${classNumber}:`;
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
         
         // Get formulas for the selected class
         const formulas = mathFormulasData[classNumber] || [];
@@ -403,7 +321,6 @@ document.addEventListener('DOMContentLoaded', function() {
             formulaItem.id = `formula-${classNumber}-${index}`;
             formulaItem.classList.remove('hidden');
             
-<<<<<<< HEAD
             // Set formula content with translation support
             const titleElement = formulaItem.querySelector('.formula-title');
             titleElement.textContent = formula.title;
@@ -416,11 +333,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (formula.explanationKey) {
                 explanationElement.setAttribute('data-translate', formula.explanationKey);
             }
-=======
-            // Set formula content
-            formulaItem.querySelector('.formula-title').textContent = formula.title;
-            formulaItem.querySelector('.formula-explanation p').textContent = formula.explanation;
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
             
             // Set formula answer (hidden initially)
             const formulaAnswerElem = formulaItem.querySelector('.formula-math');
@@ -435,11 +347,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const variablesList = document.createElement('div');
                 variablesList.className = 'formula-variables';
                 variablesList.innerHTML = `
-<<<<<<< HEAD
                     <h4 data-translate="formula.variables.where">Where:</h4>
-=======
-                    <h4>Where:</h4>
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
                     <ul>${variablesHtml}</ul>
                 `;
                 
@@ -475,14 +383,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add to container
             formulaContainer.appendChild(formulaItem);
         });
-<<<<<<< HEAD
         
         // Re-translate the page if translator is available
         if (window.mathTranslator) {
             window.mathTranslator.translatePage(window.mathTranslator.getCurrentLanguage());
         }
-=======
->>>>>>> 4ffe74e1beff1c20c8e410c777af950dc63a8a9a
     }
     
     // Function to check if user's formula is correct
@@ -732,3 +637,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
