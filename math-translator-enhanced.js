@@ -381,49 +381,66 @@ class MathTranslatorEnhanced {
         }
     }
 
-    // Main translation function
+    // Main translation function - OPTIMIZED for speed
     async translatePage(targetLanguage) {
         if (this.isTranslating || targetLanguage === this.currentLanguage) {
             return;
         }
 
         this.isTranslating = true;
-        this.showLoading();
-
-        try {
-            const elementsToTranslate = document.querySelectorAll('[data-translate]');
+        
+        // Only show loading for API translations, not pre-loaded ones
+        const elementsToTranslate = document.querySelectorAll('[data-translate]');
+        const needsAPI = [];
+        const translations = new Map();
+        
+        // First pass: collect all translations (fast, synchronous)
+        elementsToTranslate.forEach(element => {
+            const key = element.dataset.translate;
+            if (!key) return;
             
-            for (const element of elementsToTranslate) {
-                const key = element.dataset.translate;
-                const text = element.textContent.trim();
-                
-                // Save original text if not already saved
-                if (text && !element.dataset.originalText) {
-                    element.dataset.originalText = text;
-                }
-
-                let translatedText;
-                if (this.translations[targetLanguage] && this.translations[targetLanguage][key]) {
-                    translatedText = this.translations[targetLanguage][key];
-                } else {
-                    // Fallback to API translation for missing translations
-                    translatedText = await this.translateText(text, targetLanguage);
-                }
-
-                element.textContent = translatedText;
+            // Save original text if not already saved
+            if (!element.dataset.originalText) {
+                element.dataset.originalText = element.textContent.trim();
             }
-
-            this.currentLanguage = targetLanguage;
-            this.updateDocumentLanguage(targetLanguage);
-            this.saveLanguagePreference(targetLanguage);
-
-        } catch (error) {
-            console.error('Translation error:', error);
-            this.showError('Translation failed. Please try again.');
-        } finally {
-            this.isTranslating = false;
-            this.hideLoading();
+            
+            // Check if we have pre-loaded translation
+            if (this.translations[targetLanguage] && this.translations[targetLanguage][key]) {
+                translations.set(element, this.translations[targetLanguage][key]);
+            } else {
+                // Mark for API translation
+                needsAPI.push({ element, key, text: element.dataset.originalText || element.textContent.trim() });
+            }
+        });
+        
+        // Apply pre-loaded translations instantly (synchronous, fast)
+        translations.forEach((translatedText, element) => {
+            element.textContent = translatedText;
+        });
+        
+        // Handle API translations only if needed (async, but batched)
+        if (needsAPI.length > 0) {
+            this.showLoading();
+            try {
+                // Batch API calls for better performance
+                const apiPromises = needsAPI.map(({ element, text }) => 
+                    this.translateText(text, targetLanguage).then(translated => {
+                        element.textContent = translated;
+                    })
+                );
+                await Promise.all(apiPromises);
+            } catch (error) {
+                console.error('Translation API error:', error);
+                // Keep original text if API fails
+            } finally {
+                this.hideLoading();
+            }
         }
+
+        this.currentLanguage = targetLanguage;
+        this.updateDocumentLanguage(targetLanguage);
+        this.saveLanguagePreference(targetLanguage);
+        this.isTranslating = false;
     }
 
     // API translation fallback
@@ -470,19 +487,24 @@ class MathTranslatorEnhanced {
     }
 
     showLoading() {
-        // Add loading indicator
+        // Only show loading if not already showing
+        if (document.getElementById('translator-loading')) return;
+        
+        // Add loading indicator (minimal, non-intrusive)
         const loadingDiv = document.createElement('div');
         loadingDiv.id = 'translator-loading';
         loadingDiv.innerHTML = '🔄';
         loadingDiv.style.cssText = `
             position: fixed;
             top: 20px;
-            left: 20px;
+            right: 20px;
             z-index: 1000;
-            background: white;
-            padding: 10px;
+            background: rgba(255,255,255,0.9);
+            padding: 8px;
             border-radius: 50%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            font-size: 18px;
+            animation: spin 1s linear infinite;
         `;
         document.body.appendChild(loadingDiv);
     }
@@ -541,3 +563,7 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = MathTranslatorEnhanced;
 }
+
+
+
+

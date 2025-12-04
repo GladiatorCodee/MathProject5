@@ -147,6 +147,12 @@ h2 {
     color: white;
     border-color: #3a80d2;
     font-weight: 500;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.class-option {
+    transition: all 0.3s ease;
 }
 
 .class-selection-info {

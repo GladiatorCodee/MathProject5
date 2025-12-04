@@ -53,3 +53,7 @@
 ## **🚀 Ready to Deploy!**
 
 Once you have all these files in your MathProject5 folder, follow the deployment instructions to get your translated math website live!
+
+
+
+

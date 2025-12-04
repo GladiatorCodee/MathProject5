@@ -106,10 +106,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Get class number
             const classNumber = this.getAttribute('data-class');
             
-            // Update display
+            // Update display with smooth animation
             selectedClassDisplay.textContent = `Class ${classNumber}`;
+            selectedClassDisplay.style.fontWeight = 'bold';
+            selectedClassDisplay.style.color = '#4a90e2';
             
-            // Handle class change
+            // Handle class change immediately
             changeClass(classNumber);
         });
     });
@@ -300,8 +302,11 @@ document.addEventListener('DOMContentLoaded', function() {
         formulaContainer.innerHTML = '';
         
         // Update intro text with translation support
-        const introText = `Math formulas for Class ${classNumber}:`;
+        const introText = `📚 Math formulas for Class ${classNumber}:`;
         formulaIntro.textContent = introText;
+        formulaIntro.style.fontSize = '18px';
+        formulaIntro.style.fontWeight = '500';
+        formulaIntro.style.color = '#6a4af3';
         
         // Add translation attribute for dynamic content
         formulaIntro.setAttribute('data-translate', `page.formulas.intro.class.${classNumber}`);
@@ -384,9 +389,11 @@ document.addEventListener('DOMContentLoaded', function() {
             formulaContainer.appendChild(formulaItem);
         });
         
-        // Re-translate the page if translator is available
+        // Re-translate the page if translator is available (with slight delay to ensure DOM is ready)
         if (window.mathTranslator) {
-            window.mathTranslator.translatePage(window.mathTranslator.getCurrentLanguage());
+            setTimeout(() => {
+                window.mathTranslator.translatePage(window.mathTranslator.getCurrentLanguage());
+            }, 100);
         }
     }
     
@@ -422,13 +429,21 @@ document.addEventListener('DOMContentLoaded', function() {
         return modifiedUser === modifiedCorrect;
     }
     
-    // Load formulas if a class is already selected
+    // Load formulas if a class is already selected OR prompt user to select
     const selectedClass = localStorage.getItem('selectedClass');
     if (selectedClass) {
-        // Select the class option
+        // Select the class option and load formulas
         const classOption = document.querySelector(`.class-option[data-class="${selectedClass}"]`);
         if (classOption) {
-            classOption.click();
+            classOption.classList.add('active');
+            selectedClassDisplay.textContent = `Class ${selectedClass}`;
+            loadFormulas(selectedClass);
+        }
+    } else {
+        // Show message to select a class
+        const formulaContainer = document.getElementById('formula-container');
+        if (formulaContainer) {
+            formulaContainer.innerHTML = '<p style="text-align: center; padding: 20px; color: #666;">👆 Please select your class above to see math formulas and materials.</p>';
         }
     }
     

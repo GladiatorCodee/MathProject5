@@ -10,6 +10,15 @@
     100% { transform: rotate(360deg); }
 }
 
+/* Smooth translation transitions */
+[data-translate] {
+    transition: opacity 0.2s ease;
+}
+
+.translating [data-translate] {
+    opacity: 0.7;
+}
+
 /* Language Button Hover Effects (if you want to enhance your existing language buttons) */
 .language-btn:hover,
 .lang-option:hover {
@@ -51,3 +60,7 @@
     font-family: 'Times New Roman', serif;
     font-weight: bold;
 }
+
+
+
+
