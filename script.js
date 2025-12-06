@@ -171,6 +171,64 @@ document.addEventListener('DOMContentLoaded', function() {
                     'π': 'pi (3.14159...)',
                     'r': 'radius'
                 }
+            },
+            {
+                title: 'Area of Circle',
+                titleKey: 'formula.circle.area.title',
+                explanation: 'The area of a circle is calculated by multiplying pi (π) by the square of the radius.',
+                explanationKey: 'formula.circle.area.explanation',
+                correctFormula: 'A = πr²',
+                variables: {
+                    'A': 'area',
+                    'π': 'pi (3.14159...)',
+                    'r': 'radius'
+                }
+            },
+            {
+                title: 'Perimeter of Rectangle',
+                titleKey: 'formula.rectangle.perimeter.title',
+                explanation: 'The perimeter of a rectangle is calculated by adding twice the length and twice the width.',
+                explanationKey: 'formula.rectangle.perimeter.explanation',
+                correctFormula: 'P = 2l + 2w',
+                variables: {
+                    'P': 'perimeter',
+                    'l': 'length',
+                    'w': 'width'
+                }
+            },
+            {
+                title: 'Area of Square',
+                titleKey: 'formula.square.area.title',
+                explanation: 'The area of a square is calculated by squaring the length of one side.',
+                explanationKey: 'formula.square.area.explanation',
+                correctFormula: 'A = s²',
+                variables: {
+                    'A': 'area',
+                    's': 'side length'
+                }
+            },
+            {
+                title: 'Perimeter of Square',
+                titleKey: 'formula.square.perimeter.title',
+                explanation: 'The perimeter of a square is calculated by multiplying the side length by 4.',
+                explanationKey: 'formula.square.perimeter.explanation',
+                correctFormula: 'P = 4s',
+                variables: {
+                    'P': 'perimeter',
+                    's': 'side length'
+                }
+            },
+            {
+                title: 'Area of Parallelogram',
+                titleKey: 'formula.parallelogram.area.title',
+                explanation: 'The area of a parallelogram is calculated by multiplying the base length by the height.',
+                explanationKey: 'formula.parallelogram.area.explanation',
+                correctFormula: 'A = b × h',
+                variables: {
+                    'A': 'area',
+                    'b': 'base length',
+                    'h': 'height'
+                }
             }
         ],
         '8': [
@@ -208,6 +266,66 @@ document.addEventListener('DOMContentLoaded', function() {
                 variables: {
                     'V': 'volume',
                     's': 'side length'
+                }
+            },
+            {
+                title: 'Volume of Rectangular Prism',
+                titleKey: 'formula.rectangular.prism.volume.title',
+                explanation: 'The volume of a rectangular prism is calculated by multiplying its length, width, and height.',
+                explanationKey: 'formula.rectangular.prism.volume.explanation',
+                correctFormula: 'V = l × w × h',
+                variables: {
+                    'V': 'volume',
+                    'l': 'length',
+                    'w': 'width',
+                    'h': 'height'
+                }
+            },
+            {
+                title: 'Surface Area of Cube',
+                titleKey: 'formula.cube.surface.title',
+                explanation: 'The surface area of a cube is calculated by multiplying 6 by the square of the side length.',
+                explanationKey: 'formula.cube.surface.explanation',
+                correctFormula: 'SA = 6s²',
+                variables: {
+                    'SA': 'surface area',
+                    's': 'side length'
+                }
+            },
+            {
+                title: 'Percentage',
+                titleKey: 'formula.percentage.title',
+                explanation: 'To find a percentage of a number, multiply the number by the percentage and divide by 100.',
+                explanationKey: 'formula.percentage.explanation',
+                correctFormula: 'Percentage = (Part / Whole) × 100',
+                variables: {
+                    'Part': 'the part of the whole',
+                    'Whole': 'the total amount',
+                    'Percentage': 'the percentage value'
+                }
+            },
+            {
+                title: 'Speed, Distance, Time',
+                titleKey: 'formula.speed.title',
+                explanation: 'Speed is calculated by dividing distance by time. This formula can be rearranged to find distance or time.',
+                explanationKey: 'formula.speed.explanation',
+                correctFormula: 'Speed = Distance / Time',
+                variables: {
+                    'Speed': 'speed (units per time)',
+                    'Distance': 'distance traveled',
+                    'Time': 'time taken'
+                }
+            },
+            {
+                title: 'Area of Rhombus',
+                titleKey: 'formula.rhombus.area.title',
+                explanation: 'The area of a rhombus is calculated by multiplying the lengths of its two diagonals and dividing by 2.',
+                explanationKey: 'formula.rhombus.area.explanation',
+                correctFormula: 'A = (d₁ × d₂) / 2',
+                variables: {
+                    'A': 'area',
+                    'd₁': 'first diagonal length',
+                    'd₂': 'second diagonal length'
                 }
             }
         ],
@@ -248,6 +366,69 @@ document.addEventListener('DOMContentLoaded', function() {
                     'a, b': 'lengths of parallel sides',
                     'h': 'height'
                 }
+            },
+            {
+                title: 'Midpoint Formula',
+                titleKey: 'formula.midpoint.title',
+                explanation: 'The midpoint formula finds the point exactly halfway between two given points in a coordinate plane.',
+                explanationKey: 'formula.midpoint.explanation',
+                correctFormula: 'M = ((x₁ + x₂) / 2, (y₁ + y₂) / 2)',
+                variables: {
+                    'M': 'midpoint coordinates',
+                    'x₁, y₁': 'coordinates of first point',
+                    'x₂, y₂': 'coordinates of second point'
+                }
+            },
+            {
+                title: 'Volume of Cylinder',
+                titleKey: 'formula.cylinder.volume.title',
+                explanation: 'The volume of a cylinder is calculated by multiplying pi (π) by the square of the radius and the height.',
+                explanationKey: 'formula.cylinder.volume.explanation',
+                correctFormula: 'V = πr²h',
+                variables: {
+                    'V': 'volume',
+                    'π': 'pi (3.14159...)',
+                    'r': 'radius',
+                    'h': 'height'
+                }
+            },
+            {
+                title: 'Surface Area of Cylinder',
+                titleKey: 'formula.cylinder.surface.title',
+                explanation: 'The surface area of a cylinder is the sum of the areas of its two circular bases and its curved surface.',
+                explanationKey: 'formula.cylinder.surface.explanation',
+                correctFormula: 'SA = 2πr² + 2πrh',
+                variables: {
+                    'SA': 'surface area',
+                    'π': 'pi (3.14159...)',
+                    'r': 'radius',
+                    'h': 'height'
+                }
+            },
+            {
+                title: 'Linear Equation (Slope-Intercept Form)',
+                titleKey: 'formula.linear.equation.title',
+                explanation: 'A linear equation in slope-intercept form shows the relationship between x and y, where m is the slope and b is the y-intercept.',
+                explanationKey: 'formula.linear.equation.explanation',
+                correctFormula: 'y = mx + b',
+                variables: {
+                    'y': 'y-coordinate',
+                    'm': 'slope',
+                    'x': 'x-coordinate',
+                    'b': 'y-intercept'
+                }
+            },
+            {
+                title: 'Area of Parallelogram',
+                titleKey: 'formula.parallelogram.area.title',
+                explanation: 'The area of a parallelogram is calculated by multiplying the base length by the perpendicular height.',
+                explanationKey: 'formula.parallelogram.area.explanation',
+                correctFormula: 'A = b × h',
+                variables: {
+                    'A': 'area',
+                    'b': 'base length',
+                    'h': 'perpendicular height'
+                }
             }
         ],
         '10': [
@@ -287,6 +468,71 @@ document.addEventListener('DOMContentLoaded', function() {
                     'V': 'volume',
                     'π': 'pi (3.14159...)',
                     'r': 'radius'
+                }
+            },
+            {
+                title: 'Surface Area of Sphere',
+                titleKey: 'formula.sphere.surface.title',
+                explanation: 'The surface area of a sphere is calculated by multiplying 4 times pi (π) by the square of the radius.',
+                explanationKey: 'formula.sphere.surface.explanation',
+                correctFormula: 'SA = 4πr²',
+                variables: {
+                    'SA': 'surface area',
+                    'π': 'pi (3.14159...)',
+                    'r': 'radius'
+                }
+            },
+            {
+                title: 'Volume of Cone',
+                titleKey: 'formula.cone.volume.title',
+                explanation: 'The volume of a cone is calculated by multiplying one-third of pi (π) by the square of the radius and the height.',
+                explanationKey: 'formula.cone.volume.explanation',
+                correctFormula: 'V = (1/3)πr²h',
+                variables: {
+                    'V': 'volume',
+                    'π': 'pi (3.14159...)',
+                    'r': 'radius',
+                    'h': 'height'
+                }
+            },
+            {
+                title: 'Surface Area of Cone',
+                titleKey: 'formula.cone.surface.title',
+                explanation: 'The surface area of a cone includes the base area and the lateral surface area.',
+                explanationKey: 'formula.cone.surface.explanation',
+                correctFormula: 'SA = πr² + πrl',
+                variables: {
+                    'SA': 'surface area',
+                    'π': 'pi (3.14159...)',
+                    'r': 'radius',
+                    'l': 'slant height'
+                }
+            },
+            {
+                title: 'Logarithm',
+                titleKey: 'formula.logarithm.title',
+                explanation: 'A logarithm is the exponent to which a base must be raised to produce a given number.',
+                explanationKey: 'formula.logarithm.explanation',
+                correctFormula: 'log_b(x) = y means b^y = x',
+                variables: {
+                    'log_b(x)': 'logarithm of x with base b',
+                    'b': 'base',
+                    'x': 'the number',
+                    'y': 'the exponent'
+                }
+            },
+            {
+                title: 'Exponential Growth',
+                titleKey: 'formula.exponential.growth.title',
+                explanation: 'Exponential growth describes a quantity that increases at a rate proportional to its current value.',
+                explanationKey: 'formula.exponential.growth.explanation',
+                correctFormula: 'A = P × e^(rt)',
+                variables: {
+                    'A': 'final amount',
+                    'P': 'initial amount',
+                    'e': 'Euler\'s number (≈2.718)',
+                    'r': 'growth rate',
+                    't': 'time'
                 }
             }
         ]
